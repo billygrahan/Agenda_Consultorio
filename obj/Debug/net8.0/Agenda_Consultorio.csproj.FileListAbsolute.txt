@@ -1,0 +1,15 @@
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\bin\Debug\net8.0\Agenda_Consultorio.exe
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\bin\Debug\net8.0\Agenda_Consultorio.deps.json
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\bin\Debug\net8.0\Agenda_Consultorio.runtimeconfig.json
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\bin\Debug\net8.0\Agenda_Consultorio.dll
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\bin\Debug\net8.0\Agenda_Consultorio.pdb
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.AssemblyInfoInputs.cache
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.AssemblyInfo.cs
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.csproj.CoreCompileInputs.cache
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.sourcelink.json
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.dll
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\refint\Agenda_Consultorio.dll
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.pdb
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\Agenda_Consultorio.genruntimeconfig.cache
+C:\Users\Billy Grahan\Desktop\iUUU\Agenda_Consultorio\obj\Debug\net8.0\ref\Agenda_Consultorio.dll

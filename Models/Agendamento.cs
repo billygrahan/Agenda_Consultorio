@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Agenda_Consultorio
+namespace Agenda_Consultorio.Models
 {
     public class Agendamento
     {
@@ -10,7 +10,7 @@ namespace Agenda_Consultorio
         public TimeSpan HoraInicial { get; private set; }
         public TimeSpan HoraFinal { get; private set; }
 
-        
+
         public Agendamento(List<string> CPFs, List<Agendamento> agendamentosExistentes)
         {
             string cpf = Validar_Cpf(CPFs);
@@ -18,11 +18,12 @@ namespace Agenda_Consultorio
             TimeSpan horaInicial;
             TimeSpan horaFinal;
 
-            do {
+            do
+            {
                 dataConsulta = ObterDataConsulta();
                 horaInicial = ObterHoraInicial();
                 horaFinal = ObterHoraFinal();
-            } while (VerificarDataTimeValido(agendamentosExistentes));
+            } while (!VerificarDataTimeValido(agendamentosExistentes,dataConsulta,horaInicial,horaFinal));
 
 
             CPF = cpf;
@@ -30,8 +31,8 @@ namespace Agenda_Consultorio
             HoraInicial = horaInicial;
             HoraFinal = horaFinal;
         }
-            
-                
+
+
         private string Validar_Cpf(List<string> CPFs)
         {
             string cpf;
@@ -121,35 +122,34 @@ namespace Agenda_Consultorio
             return horaFinal;
         }
 
-        private bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes)
+        private bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta,TimeSpan horaInicio, TimeSpan horaFinal)
         {
-            
-            if (HoraInicial < new TimeSpan(8, 0, 0) || HoraFinal > new TimeSpan(19, 0, 0))
+
+            if (horaInicio < new TimeSpan(8, 0, 0) || horaFinal > new TimeSpan(19, 0, 0))
             {
                 Console.WriteLine("\nErro: Horário fora do expediente (8:00 às 19:00).\n");
                 return false;
             }
 
-            // Verifica se os horários estão definidos em intervalos de 15 minutos
-            if (HoraInicial.Minutes % 15 != 0 || HoraFinal.Minutes % 15 != 0)
+            if (horaInicio.Minutes % 15 != 0 || horaFinal.Minutes % 15 != 0)
             {
                 Console.WriteLine("\nErro : Horas devem ser múltiplos de 15 minutos (e.g., 1400, 1415, 1430, etc.).\n");
                 return false;
             }
 
             if (
-                agendamentosExistentes.Any(agendamento => agendamento.DataConsulta == DataConsulta &&
-                !(HoraFinal <= agendamento.HoraInicial || HoraInicial >= agendamento.HoraFinal))
+                agendamentosExistentes.Any(agendamento => agendamento.DataConsulta == datConsulta &&
+                !(horaFinal <= agendamento.HoraInicial || horaInicio >= agendamento.HoraFinal))
                 )
             {
-                Console.WriteLine("\nErro: Horário sobreposto com outro agendamento.\n");
+                Console.WriteLine("\nErro: já existe uma consulta agendada nesse horário\n");
                 return false;
             }
 
             return true;
         }
 
-        public void ImprimirDados()
+        /*public void ImprimirDados()
         {
             Console.WriteLine("\n=================================================================================\n");
 
@@ -159,7 +159,7 @@ namespace Agenda_Consultorio
             Console.WriteLine($"Fim: {HoraFinal.ToString("hh:mm")}");
 
             Console.WriteLine("\n=================================================================================\n");
-        }
+        }*/
 
     }
 }
