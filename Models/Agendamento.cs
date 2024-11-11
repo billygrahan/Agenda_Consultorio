@@ -146,6 +146,12 @@ namespace Agenda_Consultorio.Models
                 return false;
             }
 
+            if (horaInicio >= horaFinal)
+            {
+                Console.WriteLine("\nErro: Horarios invalidos.\n");
+                return false;
+            }
+
             return true;
         }
 

@@ -43,7 +43,7 @@ public class Paciente
                 Console.WriteLine("\nErro: CPF inválido\n");
             else if (CPFs.Contains(cpf))
                 Console.WriteLine("\nErro: CPF já cadastrado\n");
-        } while (!ValidarCPF(cpf) && CPFs.Contains(cpf));
+        } while (!ValidarCPF(cpf) || CPFs.Contains(cpf));
 
         return cpf;
     }
