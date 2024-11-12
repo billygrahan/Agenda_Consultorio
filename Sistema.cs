@@ -30,7 +30,7 @@ public class Sistema
             (
                 agend => agend.CPF == novoAgendamento.CPF && 
                 agend.DataConsulta >= DateTime.Now.Date && 
-                novoAgendamento.HoraFinal >= DateTime.Now.TimeOfDay
+                agend.HoraFinal >= DateTime.Now.TimeOfDay
             );
 
         if ( consulta_pendente != null)

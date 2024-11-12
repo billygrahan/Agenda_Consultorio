@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Agenda_Consultorio.Validations;
 
 namespace Agenda_Consultorio.Models
 {
@@ -13,17 +14,17 @@ namespace Agenda_Consultorio.Models
 
         public Agendamento(List<string> CPFs, List<Agendamento> agendamentosExistentes)
         {
-            string cpf = Validar_Cpf(CPFs);
+            string cpf = SolicitarCPF(CPFs);
             DateTime dataConsulta;
             TimeSpan horaInicial;
             TimeSpan horaFinal;
 
             do
             {
-                dataConsulta = ObterDataConsulta();
-                horaInicial = ObterHoraInicial();
-                horaFinal = ObterHoraFinal();
-            } while (!VerificarDataTimeValido(agendamentosExistentes,dataConsulta,horaInicial,horaFinal));
+                dataConsulta = SolicitarDataConsulta();
+                horaInicial = SolicitarHoraInicial();
+                horaFinal = SolicitarHoraFinal();
+            } while (!ValidationsAgendamento.VerificarDataTimeValido(agendamentosExistentes,dataConsulta,horaInicial,horaFinal));
 
 
             CPF = cpf;
@@ -33,139 +34,61 @@ namespace Agenda_Consultorio.Models
         }
 
 
-        private string Validar_Cpf(List<string> CPFs)
+        private string SolicitarCPF(List<string> CPFs)
         {
             string cpf;
             do
             {
                 Console.Write("CPF: ");
                 cpf = Console.ReadLine();
-                if (!CPFs.Contains(cpf))
-                {
-                    Console.WriteLine("Erro: paciente não cadastrado");
-                }
-            } while (!CPFs.Contains(cpf));
+            } while (!ValidationsAgendamento.ValidaCPF(cpf,CPFs));
 
             return cpf;
         }
 
-        private DateTime ObterDataConsulta()
+        private DateTime SolicitarDataConsulta()
         {
             DateTime dataConsulta;
-            while (true)
+            string dataConsulta_str;
+            do
             {
                 Console.Write("Data da Consulta: ");
-                string dataConsulta_str = Console.ReadLine();
+                dataConsulta_str = Console.ReadLine();
+            } while (!ValidationsAgendamento.ValidaDataConsulta(dataConsulta_str));
 
-                if (DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta))
-                {
-                    if (dataConsulta < DateTime.Now.Date)
-                    {
-                        Console.WriteLine("\nErro: A data da consulta deve ser para um período futuro.\n");
-                        continue;
-                    }
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("\nErro: Data no formato incorreto.\n");
-                }
-            }
+            DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta);
 
             return dataConsulta;
         }
 
-        private TimeSpan ObterHoraInicial()
+        private TimeSpan SolicitarHoraInicial()
         {
             TimeSpan horaInicial;
-            while (true)
+            string horaInicial_str;
+            do
             {
                 Console.Write("Hora Inicial: ");
-                string horaInicial_str = Console.ReadLine();
+                horaInicial_str = Console.ReadLine();
+            } while (!ValidationsAgendamento.ValidaHoraInicial(horaInicial_str));
 
-                if (TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial))
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("\nErro: Hora inicial inválida. Use o formato HHMM. XXXXXXXXXXXXXXXXXXXX\n");
-                }
-            }
-
+            TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial);
             return horaInicial;
         }
 
-        private TimeSpan ObterHoraFinal()
+        private TimeSpan SolicitarHoraFinal()
         {
             TimeSpan horaFinal;
-            while (true)
+            string horaFinal_str;
+
+            do
             {
                 Console.Write("Hora Final: ");
-                string horaFinal_str = Console.ReadLine();
+                horaFinal_str = Console.ReadLine();
+            } while (!ValidationsAgendamento.ValidaHoraFinal(horaFinal_str));
 
-                if (TimeSpan.TryParseExact(horaFinal_str, "hhmm", null, out horaFinal))
-                {
-                    if (horaFinal <= HoraInicial)
-                    {
-                        Console.WriteLine("\nErro: A hora final deve ser maior que a hora inicial.\n");
-                        continue;
-                    }
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("\nErro: Hora final inválida. Use o formato HHMM.\n");
-                }
-            }
-
+            TimeSpan.TryParseExact(horaFinal_str, "hhmm", null, out horaFinal);
             return horaFinal;
         }
-
-        private bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta,TimeSpan horaInicio, TimeSpan horaFinal)
-        {
-
-            if (horaInicio < new TimeSpan(8, 0, 0) || horaFinal > new TimeSpan(19, 0, 0))
-            {
-                Console.WriteLine("\nErro: Horário fora do expediente (8:00 às 19:00).\n");
-                return false;
-            }
-
-            if (horaInicio.Minutes % 15 != 0 || horaFinal.Minutes % 15 != 0)
-            {
-                Console.WriteLine("\nErro : Horas devem ser múltiplos de 15 minutos (e.g., 1400, 1415, 1430, etc.).\n");
-                return false;
-            }
-
-            if (
-                agendamentosExistentes.Any(agendamento => agendamento.DataConsulta == datConsulta &&
-                !(horaFinal <= agendamento.HoraInicial || horaInicio >= agendamento.HoraFinal))
-                )
-            {
-                Console.WriteLine("\nErro: já existe uma consulta agendada nesse horário\n");
-                return false;
-            }
-
-            if (horaInicio >= horaFinal)
-            {
-                Console.WriteLine("\nErro: Horarios invalidos.\n");
-                return false;
-            }
-
-            return true;
-        }
-
-        /*public void ImprimirDados()
-        {
-            Console.WriteLine("\n=================================================================================\n");
-
-            Console.WriteLine($"CPF: {CPF}");
-            Console.WriteLine($"Dia: {DataConsulta.ToString("dd/MM/yyyy")}");
-            Console.WriteLine($"Inicio: {HoraInicial.ToString("hh:mm")}");
-            Console.WriteLine($"Fim: {HoraFinal.ToString("hh:mm")}");
-
-            Console.WriteLine("\n=================================================================================\n");
-        }*/
 
     }
 }

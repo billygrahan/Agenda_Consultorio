@@ -3,33 +3,41 @@
   "WorkspaceRootPath": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\validations\\validationsagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:validations\\validationsagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\views\\respostas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:views\\respostas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\views\\menus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:views\\menus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\views\\respostas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:views\\respostas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\validations\\validationspaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:validations\\validationspaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 202,
+          "DockedHeight": 309,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -39,31 +47,62 @@
           ]
         },
         {
-          "DockedWidth": 304,
-          "SelectedChildIndex": 4,
+          "DockedHeight": 302,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ValidationsPaciente.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsPaciente.cs",
+              "RelativeDocumentMoniker": "Validations\\ValidationsPaciente.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsPaciente.cs",
+              "RelativeToolTip": "Validations\\ValidationsPaciente.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAIwCcAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:33:59.801Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ValidationsAgendamento.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
+              "RelativeDocumentMoniker": "Validations\\ValidationsAgendamento.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
+              "RelativeToolTip": "Validations\\ValidationsAgendamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:30:08.289Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 316,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Paciente.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Paciente.cs",
               "RelativeDocumentMoniker": "Models\\Paciente.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Paciente.cs",
               "RelativeToolTip": "Models\\Paciente.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T20:00:59.664Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Menus.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Views\\Menus.cs",
               "RelativeDocumentMoniker": "Views\\Menus.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Views\\Menus.cs",
               "RelativeToolTip": "Views\\Menus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAiAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAgwB4AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-05T16:11:10.241Z"
             },
@@ -75,35 +114,34 @@
               "RelativeDocumentMoniker": "Sistema.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Sistema.cs",
               "RelativeToolTip": "Sistema.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T17:13:43.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Respostas.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Views\\Respostas.cs",
               "RelativeDocumentMoniker": "Views\\Respostas.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Views\\Respostas.cs",
               "RelativeToolTip": "Views\\Respostas.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAA0AAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAUwEcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-06T22:34:13.493Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Agendamento.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Agendamento.cs",
               "RelativeDocumentMoniker": "Models\\Agendamento.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Agendamento.cs",
               "RelativeToolTip": "Models\\Agendamento.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAcwCsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T02:46:40.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T02:46:40.732Z"
             }
           ]
         }

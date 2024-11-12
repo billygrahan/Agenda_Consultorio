@@ -30,7 +30,7 @@ public class Respostas
                 Console.Write(agendamento.DataConsulta.ToString("dd/MM/yyyy "));
                 dataAtual = agendamento.DataConsulta;
             }
-            else Console.Write("          ");
+            else Console.Write("           ");
             
             Console.WriteLine($"{agendamento.HoraInicial:hh\\:mm}   " +
                               $"{agendamento.HoraFinal:hh\\:mm}   " +
@@ -39,7 +39,7 @@ public class Respostas
                               $"{paciente.DataNascimento:dd/MM/yyyy}");
         }
 
-        Console.WriteLine("------------------------------------------------------------");
+        Console.WriteLine("----------------------------------------------------------------");
     }
 
     public static void ListagemPacientes(List<Paciente> Pacientes, List<Agendamento> agendamentos, int ordem = 0)
@@ -75,6 +75,6 @@ public class Respostas
             }
         }
 
-        Console.WriteLine("-----------------------------------------------------------");
+        Console.WriteLine("------------------------------------------------------------");
     }
 }
