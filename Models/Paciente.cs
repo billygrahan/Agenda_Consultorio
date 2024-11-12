@@ -4,7 +4,7 @@ using Agenda_Consultorio.Validations;
 
 namespace Agenda_Consultorio.Models;
 
-public class Paciente
+public class Paciente : ValidationsPaciente
 {
     public string Nome { get; private set; }
     public string CPF { get; private set; }
@@ -27,7 +27,7 @@ public class Paciente
         {
             Console.Write("Nome: ");
             nome = Console.ReadLine();
-        } while (!ValidationsPaciente.ValidaNome(nome));
+        } while (!ValidaNome(nome));
 
         return nome;
     }
@@ -39,7 +39,7 @@ public class Paciente
         {
             Console.Write("CPF: ");
             cpf = Console.ReadLine();
-        } while (!ValidationsPaciente.ValidaCPF(cpf,CPFs));
+        } while (!ValidaCPF(cpf,CPFs));
 
         return cpf;
     }
@@ -53,7 +53,7 @@ public class Paciente
         {
             Console.Write("Data de Nascimento: ");
             dataNascimento_str = Console.ReadLine();
-        } while (!ValidationsPaciente.ValidaDataNascimento(dataNascimento_str));
+        } while (!ValidaDataNascimento(dataNascimento_str));
 
         DateTime.TryParseExact(dataNascimento_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento);
         return dataNascimento;

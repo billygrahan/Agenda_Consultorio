@@ -4,7 +4,7 @@ namespace Agenda_Consultorio.Validations;
 
 public class ValidationsPaciente
 {
-    public static bool ValidaNome(string nome)
+    protected bool ValidaNome(string nome)
     {
         if (nome.Length < 5)
         {
@@ -13,7 +13,7 @@ public class ValidationsPaciente
         }
         return true;
     }
-    public static bool ValidaCPF(string cpf, List<string> CPFs)
+    protected bool ValidaCPF(string cpf, List<string> CPFs)
     {
         if (!ValidarCPF(cpf))
         {
@@ -28,7 +28,7 @@ public class ValidationsPaciente
         return true;
     }
 
-    public static bool ValidaDataNascimento(string dataNascimento_str)
+    protected bool ValidaDataNascimento(string dataNascimento_str)
     {
         DateTime dataNascimento;
         if (!DateTime.TryParseExact(dataNascimento_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))

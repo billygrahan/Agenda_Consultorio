@@ -4,7 +4,7 @@ using Agenda_Consultorio.Validations;
 
 namespace Agenda_Consultorio.Models
 {
-    public class Agendamento
+    public class Agendamento : ValidationsAgendamento
     {
         public string CPF { get; private set; }
         public DateTime DataConsulta { get; private set; }
@@ -24,7 +24,7 @@ namespace Agenda_Consultorio.Models
                 dataConsulta = SolicitarDataConsulta();
                 horaInicial = SolicitarHoraInicial();
                 horaFinal = SolicitarHoraFinal();
-            } while (!ValidationsAgendamento.VerificarDataTimeValido(agendamentosExistentes,dataConsulta,horaInicial,horaFinal));
+            } while (!VerificarDataTimeValido(agendamentosExistentes,dataConsulta,horaInicial,horaFinal));
 
 
             CPF = cpf;
@@ -41,7 +41,7 @@ namespace Agenda_Consultorio.Models
             {
                 Console.Write("CPF: ");
                 cpf = Console.ReadLine();
-            } while (!ValidationsAgendamento.ValidaCPF(cpf,CPFs));
+            } while (!ValidaCPF(cpf,CPFs));
 
             return cpf;
         }
@@ -54,7 +54,7 @@ namespace Agenda_Consultorio.Models
             {
                 Console.Write("Data da Consulta: ");
                 dataConsulta_str = Console.ReadLine();
-            } while (!ValidationsAgendamento.ValidaDataConsulta(dataConsulta_str));
+            } while (!ValidaDataConsulta(dataConsulta_str));
 
             DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta);
 
@@ -69,7 +69,7 @@ namespace Agenda_Consultorio.Models
             {
                 Console.Write("Hora Inicial: ");
                 horaInicial_str = Console.ReadLine();
-            } while (!ValidationsAgendamento.ValidaHoraInicial(horaInicial_str));
+            } while (!ValidaHoraInicial(horaInicial_str));
 
             TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial);
             return horaInicial;
@@ -84,7 +84,7 @@ namespace Agenda_Consultorio.Models
             {
                 Console.Write("Hora Final: ");
                 horaFinal_str = Console.ReadLine();
-            } while (!ValidationsAgendamento.ValidaHoraFinal(horaFinal_str));
+            } while (!ValidaHoraFinal(horaFinal_str));
 
             TimeSpan.TryParseExact(horaFinal_str, "hhmm", null, out horaFinal);
             return horaFinal;

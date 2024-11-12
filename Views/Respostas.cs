@@ -15,9 +15,9 @@ public class Respostas
             .ToList();
 
         Console.WriteLine("\n");
-        Console.WriteLine("-----------------------------------------------------------------------");
-        Console.WriteLine("Data         H.Ini  H.Fim  Tempo   Nome                        Dt.Nasc.");
-        Console.WriteLine("-----------------------------------------------------------------------");
+        Console.WriteLine("-------------------------------------------------------------------------");
+        Console.WriteLine("Data       H.Ini   H.Fim   Tempo   Nome                          Dt.Nasc.");
+        Console.WriteLine("-------------------------------------------------------------------------");
 
         
         DateTime? dataAtual = null;
@@ -39,7 +39,7 @@ public class Respostas
                               $"{paciente.DataNascimento:dd/MM/yyyy}");
         }
 
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("----------------------------------------------------------------------");
     }
 
     public static void ListagemPacientes(List<Paciente> Pacientes, List<Agendamento> agendamentos, int ordem = 0)

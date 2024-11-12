@@ -5,18 +5,18 @@ namespace Agenda_Consultorio.Validations;
 
 public class ValidationsAgendamento
 {
-    public static bool ValidaCPF(string cpf, List<string> CPFs)
+    protected bool ValidaCPF(string cpf, List<string> CPFs)
     {
 
         if (!CPFs.Contains(cpf))
         {
-            Console.WriteLine("Erro: paciente não cadastrado");
+            Console.WriteLine("\nErro: paciente não cadastrado\n");
             return false;
         }
         return true;
     }
 
-    public static bool ValidaDataConsulta(string dataConsulta_str)
+    protected bool ValidaDataConsulta(string dataConsulta_str)
     {
         DateTime dataConsulta;
         if (DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta))
@@ -35,7 +35,7 @@ public class ValidationsAgendamento
         }
     }
 
-    public static bool ValidaHoraInicial(string horaInicial_str)
+    protected bool ValidaHoraInicial(string horaInicial_str)
     {
         TimeSpan horaInicial;
         if (TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial))
@@ -49,7 +49,7 @@ public class ValidationsAgendamento
         }
     }
 
-    public static bool ValidaHoraFinal(string horaFinal_str)
+    protected bool ValidaHoraFinal(string horaFinal_str)
     {
         TimeSpan horaFinal;
         if (TimeSpan.TryParseExact(horaFinal_str, "hhmm", null, out horaFinal))
@@ -59,7 +59,7 @@ public class ValidationsAgendamento
         return false;
     }
 
-    public static bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta, TimeSpan horaInicio, TimeSpan horaFinal)
+    protected bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta, TimeSpan horaInicio, TimeSpan horaFinal)
     {
 
             if (horaInicio < new TimeSpan(8, 0, 0) || horaFinal > new TimeSpan(19, 0, 0))
