@@ -8,9 +8,9 @@ namespace Agenda_Consultorio;
 public class Sistema : ValidationsSistema
 {
     // Alteradas para listas mutáveis
-    public List<Paciente> Pacientes { get; private set; } = new List<Paciente>();
-    public List<Agendamento> Agendamentos { get; private set; } = new List<Agendamento>();
-    public List<string> CPFsPacientes { get; private set; } = new List<string>();
+    private List<Paciente> Pacientes  = new List<Paciente>();
+    private List<Agendamento> Agendamentos  = new List<Agendamento>();
+    private List<string> CPFsPacientes  = new List<string>();
 
     public bool CadastrarPaciente(Paciente novoPaciente)
     {

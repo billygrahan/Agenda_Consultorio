@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
@@ -40,11 +44,11 @@
         },
         {
           "DockedHeight": 371,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ValidationsPaciente.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsPaciente.cs",
               "RelativeDocumentMoniker": "Validations\\ValidationsPaciente.cs",
@@ -52,12 +56,11 @@
               "RelativeToolTip": "Validations\\ValidationsPaciente.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAAgwFQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T14:33:59.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T14:33:59.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ValidationsAgendamento.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
               "RelativeDocumentMoniker": "Validations\\ValidationsAgendamento.cs",
@@ -65,12 +68,11 @@
               "RelativeToolTip": "Validations\\ValidationsAgendamento.cs",
               "ViewState": "AQIAADcAAAAAAAAAAAAowF4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T15:30:08.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T15:30:08.289Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ValidationsSistema.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsSistema.cs",
               "RelativeDocumentMoniker": "Validations\\ValidationsSistema.cs",
@@ -78,12 +80,11 @@
               "RelativeToolTip": "Validations\\ValidationsSistema.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T13:01:45.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T13:01:45.733Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\README.md",
               "RelativeDocumentMoniker": "README.md",
@@ -96,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Paciente.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Paciente.cs",
               "RelativeDocumentMoniker": "Models\\Paciente.cs",
@@ -104,7 +105,19 @@
               "RelativeToolTip": "Models\\Paciente.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAAcwBcAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:39:20.095Z",
+              "WhenOpened": "2024-11-13T00:39:20.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sistema.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Sistema.cs",
+              "RelativeDocumentMoniker": "Sistema.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Sistema.cs",
+              "RelativeToolTip": "Sistema.cs",
+              "ViewState": "AQIAALIAAAAAAAAAAAAcwAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T01:20:43.142Z",
               "EditorCaption": ""
             }
           ]
