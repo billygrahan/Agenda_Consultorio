@@ -42,17 +42,20 @@ public class ValidationsSistema
     protected bool ValidaCadastroConsulta(Agendamento novoAgendamento, List<Agendamento> Agendamentos)
     {
         var consulta_pendente = Agendamentos.Find
-            (
-                agend => agend.CPF == novoAgendamento.CPF &&
-                agend.DataConsulta >= DateTime.Now.Date &&
-                agend.HoraFinal >= DateTime.Now.TimeOfDay
-            );
+        (
+            agend =>
+            agend.CPF == novoAgendamento.CPF &&
+            agend.DataConsulta > DateTime.Now.Date ||
+            (agend.DataConsulta == DateTime.Now.Date && agend.HoraFinal > DateTime.Now.TimeOfDay)
+        );
 
         if (consulta_pendente != null)
         {
-            Console.WriteLine("\nErro: Paciente ja tem uma consulta marcada\n");
+            Console.WriteLine("\nErro: Paciente já tem uma consulta marcada\n");
             return false;
         }
+
+
         if (novoAgendamento == null)
         {
             Console.WriteLine("\nErro: Agendamento é nulo\n");

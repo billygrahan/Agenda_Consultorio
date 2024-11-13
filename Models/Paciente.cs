@@ -13,8 +13,8 @@ public class Paciente : ValidationsPaciente
     public Paciente(List<string> CPFs)
     {
         //Console.WriteLine("\n=================================================================================");
-        Nome = SolicitarNome();
         CPF = SolicitarCPF(CPFs);
+        Nome = SolicitarNome();
         DataNascimento = SolicitarDataNascimento();
         //Console.WriteLine("=================================================================================\n");
     }
