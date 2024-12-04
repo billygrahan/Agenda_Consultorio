@@ -54,7 +54,7 @@ dotnet restore
    ```csharp  
    string host = "SEU_HOST"; // Exemplo: "localhost"  
    string username = "SEU_USUARIO"; // Exemplo: "postgres"  
-   string password = "SUA_SENHA"; // Exemplo: "@marelO50"  
+   string password = "SUA_SENHA"; // Exemplo: "12345678"  
    string database = "SEU_BANCO_DE_DADOS"; // Exemplo: "ApiConsultórioBD"  
 
    string connectionString = $"Host={host};Username={username};Password={password};Database={database}";  
