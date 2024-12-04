@@ -1,10 +1,11 @@
 ﻿using Agenda_Consultorio.Models;
+using Agenda_Consultorio.Views;
 
 namespace Agenda_Consultorio.Validations;
 
 public class ValidationsSistema
 {
-    protected bool ValidaCadastroPaciente(Paciente novoPaciente)
+    public static bool ValidaCadastroPaciente(Paciente novoPaciente)
     {
         if (novoPaciente != null)
         {
@@ -13,13 +14,13 @@ public class ValidationsSistema
         return false;
     }
 
-    protected bool ValidaExclusaoPaciente(string CPF, List<Paciente> Pacientes, List<Agendamento> Agendamentos)
+    public static bool ValidaExclusaoPaciente(string CPF, List<Paciente> Pacientes, List<Agendamento> Agendamentos)
     {
         var paciente = Pacientes.Find(Lpac => Lpac.CPF == CPF);
 
         if (paciente == null)
         {
-            Console.WriteLine("\nErro: paciente não cadastrado\n");
+            Errors.MensagemdeErro("paciente nao cadastrado");
             return false;
         }
 
@@ -32,14 +33,14 @@ public class ValidationsSistema
 
         if (AgendamentoFuturo != null)
         {
-            Console.WriteLine("\nErro: paciente está agendado.\n");
+            Errors.MensagemdeErro("paciente agendado");
             return false;
         }
 
         return true;
     }
 
-    protected bool ValidaCadastroConsulta(Agendamento novoAgendamento, List<Agendamento> Agendamentos)
+    public static bool ValidaCadastroConsulta(Agendamento novoAgendamento, List<Agendamento> Agendamentos)
     {
         var consulta_pendente = Agendamentos.Find
         (
@@ -51,20 +52,20 @@ public class ValidationsSistema
 
         if (consulta_pendente != null)
         {
-            Console.WriteLine("\nErro: Paciente já tem uma consulta marcada\n");
+            Errors.MensagemdeErro("consulta marcada");
             return false;
         }
 
 
         if (novoAgendamento == null)
         {
-            Console.WriteLine("\nErro: Agendamento é nulo\n");
+            Errors.MensagemdeErro("new agendamento is null");
             return false;
         }
         return true;
     }
 
-    protected bool ValidaExclusaoAgendamento(string CPF, DateTime DataConsulta, TimeSpan HoraInicial, List<Agendamento> Agendamentos)
+    public static bool ValidaExclusaoAgendamento(string CPF, DateTime DataConsulta, TimeSpan HoraInicial, List<Agendamento> Agendamentos)
     {
         var agendamento = Agendamentos.Find(agenda =>
                                     agenda.CPF == CPF &&
@@ -75,7 +76,7 @@ public class ValidationsSistema
 
         if (agendamento == null)
         {
-            Console.WriteLine("\nErro: agendamento não encontrado\n");
+            Errors.MensagemdeErro("agendamento nao encontrado");
             return false;
         }
 
@@ -85,7 +86,7 @@ public class ValidationsSistema
         }
         else
         {
-            Console.WriteLine("\nErro: agendamento não encontrado\n");
+            Errors.MensagemdeErro("agendamento nao encontrado");
             return false;
         }
     }

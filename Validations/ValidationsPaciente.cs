@@ -1,45 +1,47 @@
-﻿using System.Globalization;
+﻿using Agenda_Consultorio.Views;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace Agenda_Consultorio.Validations;
 
 public class ValidationsPaciente
 {
-    protected bool ValidaNome(string nome)
+    public static bool ValidaNome(string nome)
     {
         if (nome.Length < 5)
         {
-            Console.WriteLine("\nErro: o nome deve ter pelo menos 5 caracteres.\n");
+            Errors.MensagemdeErro("nome maior que 5");
             return false;
         }
         return true;
     }
-    protected bool ValidaCPF(string cpf, List<string> CPFs)
+    public static bool ValidaCPF(string cpf, List<string> CPFs)
     {
         if (!ValidarCPF(cpf))
         {
-            Console.WriteLine("\nErro: CPF inválido\n");
+            Errors.MensagemdeErro("cpf invalido");
             return false;
         }
         else if (CPFs.Contains(cpf))
         {
-            Console.WriteLine("\nErro: CPF já cadastrado\n");
+            Errors.MensagemdeErro("cpf ja exixte");
             return false;
         }
         return true;
     }
 
-    protected bool ValidaDataNascimento(string dataNascimento_str)
+    public static bool ValidaDataNascimento(string dataNascimento_str)
     {
         DateTime dataNascimento;
         if (!DateTime.TryParseExact(dataNascimento_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
         {
-            Console.WriteLine("\nErro: data no formato incorreto.\n");
+            Errors.MensagemdeErro("DateTime form");
             return false;
         }
 
         if (dataNascimento >= DateTime.Now.AddYears(-13))
         {
-            Console.WriteLine("\nErro: paciente deve ter pelo menos 13 anos.\n");
+            Errors.MensagemdeErro("idade paciente");
             return false;
         }
         return true;
@@ -82,3 +84,4 @@ public class ValidationsPaciente
         return Primeiro_Digito == cpf[9] - '0' && Segundo_Digito == cpf[10] - '0';
     }
 }
+

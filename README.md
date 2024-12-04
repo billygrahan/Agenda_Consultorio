@@ -1,95 +1,116 @@
-# Agenda_Consultório
+# Agenda_Consultório  
 
-Este é um sistema de gerenciamento de um consultório Odontológico desenvolvido em **.NET** para agendar e gerenciar consultas de pacientes. O sistema permite o cadastro de pacientes, o agendamento de consultas e a listagem de agendamentos.
+Este é um sistema de gerenciamento para um consultório odontológico, desenvolvido em **.NET**. Ele permite agendar e gerenciar consultas de pacientes, além de realizar operações como cadastro, exclusão e listagem.  
 
-## Funcionalidades
+## Nota Importante  
+**O programa ainda está em desenvolvimento e precisa de ajustes para melhor desempenho.**  
+As validações e consultas, que atualmente são feitas diretamente nas listas em memória, deverão ser reimplementadas para serem realizadas no banco de dados. No início da execução, todas as tabelas são importadas para listas em memória para realizar essas operações.  
 
-### 1. **Cadastro de Pacientes**
-- **Cadastrar paciente**: Permite o cadastro de um novo paciente informando seu nome, CPF e data de nascimento.
-- **Excluir paciente**: Exclui um paciente da lista de pacientes cadastrados.
-- **Listar pacientes**: Permite listar os pacientes, com opções de ordenação:
-  - Por **CPF**.
-  - Por **nome**.
+## Funcionalidades  
 
-### 2. **Agenda de Consultas**
-- **Agendar consulta**: Permite agendar uma consulta para um paciente, definindo data, hora de início e de término.
-- **Cancelar consulta**: Permite cancelar um agendamento de consulta existente.
-- **Listar agendamentos**: Exibe os agendamentos de consulta com detalhes, como data, hora de início, hora de término e nome do paciente. A lista pode ser filtrada por data.
+### 1. **Cadastro de Pacientes**  
+- **Cadastrar paciente**: Cadastro de pacientes informando nome, CPF e data de nascimento.  
+- **Excluir paciente**: Exclui um paciente, desde que não possua agendamentos futuros.  
+- **Listar pacientes**: Permite visualizar os pacientes cadastrados com as seguintes opções de ordenação:  
+  - Por **CPF**.  
+  - Por **nome**.  
 
-## Estrutura do Projeto
+### 2. **Agenda de Consultas**  
+- **Agendar consulta**: Permite agendar consultas com validação de horários e conflitos.  
+- **Cancelar consulta**: Remove consultas futuras da agenda.  
+- **Listar agendamentos**: Exibe os agendamentos com detalhes, com filtro opcional por período.  
 
-1. **Models**: Contém as classes que representam os dados do sistema.
-    - `Paciente.cs`: Representa os pacientes com dados como CPF, nome e data de nascimento.
-    - `Agendamento.cs`: Representa os agendamentos de consultas, incluindo data, hora de início, hora de término e CPF do paciente.
-    - `Sistema.cs`: Gerencia a execução das funcionalidades principais do sistema (cadastro, agendamento, listagem).
+## Estrutura do Projeto  
 
-2. **Views**: Contém as classes responsáveis por exibir as opções para o usuário no console.
-    - `Menus.cs`: Exibe os menus interativos para navegação entre as funcionalidades.
-    - `Respostas.cs`: Exibe as respostas ou resultados das operações, como a listagem de pacientes e agendamentos.
+1. **Controllers**: Interação com o banco de dados.  
+2. **Models**: Representam os dados do sistema:  
+    - `Paciente`: Gerencia informações dos pacientes.  
+    - `Agendamento`: Gerencia dados de consultas agendadas.  
+3. **Views**: Responsáveis pela interação visual (menus e respostas).  
+4. **Sistema**: Classe principal que orquestra o funcionamento do sistema.  
+5. **Program.cs**: Contém o ponto de entrada do sistema.  
 
-3. **Program.cs**: Contém o ponto de entrada principal do sistema, onde o método `run()` é chamado para iniciar a execução do programa.
+## Como Executar  
 
-## Como Executar
+### 1. Clonar o Repositório  
 
-### 1. Clonar o Repositório
+Clone o repositório para o seu ambiente local:  
+```bash  
+git clone https://github.com/billygrahan/Agenda_Consultorio  
+cd Agenda_Consultorio  
+```  
 
-Clone o repositório para o seu ambiente local usando o comando:
-```bash
-git clone https://github.com/billygrahan/Agenda_Consultorio
-cd Agenda_Consultorio
-```
+### 2. Restaurar Dependências  
 
-### 2. Restaurar Dependências
+Use o comando abaixo para restaurar as dependências do projeto:  
+```bash  
+dotnet restore  
+```  
 
-Para restaurar as dependências do projeto, use:
-```bash
-dotnet restore
-```
+### 3. Configurar a String de Conexão  
 
-### 3. Compilar o Projeto
+1. Abra o arquivo `AppDbContext.cs` na pasta `Context`.  
+2. Localize o método `OnConfiguring` e ajuste os valores de conexão:  
+   ```csharp  
+   string host = "SEU_HOST"; // Exemplo: "localhost"  
+   string username = "SEU_USUARIO"; // Exemplo: "postgres"  
+   string password = "SUA_SENHA"; // Exemplo: "@marelO50"  
+   string database = "SEU_BANCO_DE_DADOS"; // Exemplo: "ApiConsultórioBD"  
 
-Compile o projeto para verificar se tudo está correto:
-```bash
-dotnet build
-```
+   string connectionString = $"Host={host};Username={username};Password={password};Database={database}";  
 
-### 4. Executar o Projeto
+   optionsBuilder.UseNpgsql(connectionString);  
+   ```  
+3. Salve as alterações.  
 
-Para rodar o projeto e iniciar a aplicação no console, utilize:
-```bash
-dotnet run
-```
+### 4. Migrar o Banco de Dados  
 
-### 5. Interação com o Sistema
+Crie as tabelas no banco de dados utilizando as migrations:  
+```bash  
+dotnet ef database update  
+```  
 
-Ao rodar o programa, o menu principal será exibido no console com as seguintes opções:
-- **1**: Cadastro de Pacientes
-- **2**: Agenda de Consultas
-- **3**: Finalizar o programa
+### 5. Compilar e Executar  
 
-Dependendo da opção escolhida, o sistema exibirá um novo menu com as opções relacionadas (cadastrar, listar, excluir pacientes, agendar, cancelar agendamentos, etc.).
+Compile o projeto:  
+```bash  
+dotnet build  
+```  
 
-## Validações
+Execute o projeto:  
+```bash  
+dotnet run  
+```  
 
-### 1. **Validação de Pacientes**
-- **Nome**: O nome do paciente deve ter pelo menos 5 caracteres.
-- **CPF**: O CPF do paciente deve ser válido e único no sistema.
-- **Data de Nascimento**: O paciente deve ter pelo menos 13 anos. A data de nascimento deve estar no formato "dd/MM/yyyy".
+## Validações  
 
-### 2. **Validação de Agendamentos**
-- **CPF do Paciente**: O CPF informado para agendamento deve corresponder a um paciente cadastrado.
-- **Data da Consulta**: A data da consulta deve ser futura seguindo os padrões: "dd/MM/yyyy" , "hhmm".
-- **Hora Inicial e Hora Final**: As horas de início e término da consulta devem ser válidas, dentro do horário de funcionamento (08:00 às 19:00) e múltiplas de 15 minutos. A hora final não pode ser antes da hora inicial.
-- **Conflito de Horários**: O sistema verifica se já existem consultas agendadas no mesmo horário.
-- **Consulta Pendente**: Para cadastrar uma nova consulta o usuário não deve ter nenhuma consulta pendente.
+### 1. **Validações de Pacientes**  
+- **Nome**: Deve conter ao menos 5 caracteres.  
+- **CPF**: Deve ser válido e único no sistema.  
+- **Data de Nascimento**: Apenas maiores de 13 anos são permitidos.  
 
-### 3. **Validação de Exclusões**
-- **Exclusão de Paciente**: Pacientes com agendamentos futuros não podem ser excluídos.
-- **Exclusão de Agendamento**: Apenas agendamentos futuros podem ser excluídos.
+### 2. **Validações de Consultas**  
+- **Horário**: Dentro do período das 8h às 19h e múltiplos de 15 minutos.  
+- **Conflito**: Não é permitido agendar consultas em horários já ocupados.  
+- **Consulta Pendente**: Um paciente com consulta pendente não pode agendar outra.  
 
-## Tecnologias Utilizadas
+### 3. **Validações de Exclusões**  
+- **Pacientes**: Só podem ser excluídos se não possuírem consultas futuras.  
+- **Agendamentos**: Apenas consultas futuras podem ser removidas.  
 
-- **.NET**: Framework utilizado para o desenvolvimento do backend, oferecendo suporte completo para construção de aplicações robustas.
-- **C#**: Linguagem de programação utilizada para criar a lógica do sistema.
+## Tecnologias Utilizadas  
 
+- **.NET Core**: Framework robusto para aplicações.  
+- **C#**: Linguagem de programação principal.  
+- **Entity Framework Core**: ORM para interações com banco de dados.  
+
+## Contribuições  
+
+Sinta-se à vontade para fazer um fork do projeto, sugerir melhorias ou abrir issues. Para contribuir:  
+1. Faça um fork do repositório.  
+2. Crie uma branch para sua feature:  
+   ```bash  
+   git checkout -b minha-feature  
+   ```  
+3. Após as mudanças, envie um pull request.  
 

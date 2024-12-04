@@ -11,101 +11,72 @@
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\validations\\validationssistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:validations\\validationssistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\controllers\\agendamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:controllers\\agendamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\validations\\validationsagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:validations\\validationsagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\validations\\validationspaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:validations\\validationspaciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\agenda_consultorio\\models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5402CD3-AFE2-4549-B436-FD5778027C04}|Agenda_Consultorio.csproj|solutionrelative:models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 309,
+          "DockedWidth": 130,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         },
         {
-          "DockedHeight": 371,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 279,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ValidationsPaciente.cs",
-              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsPaciente.cs",
-              "RelativeDocumentMoniker": "Validations\\ValidationsPaciente.cs",
-              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsPaciente.cs",
-              "RelativeToolTip": "Validations\\ValidationsPaciente.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAgwFQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T14:33:59.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ValidationsAgendamento.cs",
-              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
-              "RelativeDocumentMoniker": "Validations\\ValidationsAgendamento.cs",
-              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
-              "RelativeToolTip": "Validations\\ValidationsAgendamento.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAowF4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T15:30:08.289Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ValidationsSistema.cs",
-              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsSistema.cs",
-              "RelativeDocumentMoniker": "Validations\\ValidationsSistema.cs",
-              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsSistema.cs",
-              "RelativeToolTip": "Validations\\ValidationsSistema.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T13:01:45.733Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-11-13T00:00:43.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Paciente.cs",
               "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Paciente.cs",
               "RelativeDocumentMoniker": "Models\\Paciente.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Paciente.cs",
               "RelativeToolTip": "Models\\Paciente.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAcwBcAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T00:39:20.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Agendamento.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Agendamento.cs",
+              "RelativeDocumentMoniker": "Models\\Agendamento.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Models\\Agendamento.cs",
+              "RelativeToolTip": "Models\\Agendamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T18:52:05.302Z"
             },
             {
               "$type": "Document",
@@ -115,9 +86,60 @@
               "RelativeDocumentMoniker": "Sistema.cs",
               "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Sistema.cs",
               "RelativeToolTip": "Sistema.cs",
-              "ViewState": "AQIAALIAAAAAAAAAAAAcwAYAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T01:20:43.142Z",
+              "WhenOpened": "2024-11-29T19:25:38.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AgendamentosController.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Controllers\\AgendamentosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AgendamentosController.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Controllers\\AgendamentosController.cs",
+              "RelativeToolTip": "Controllers\\AgendamentosController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T21:53:17.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PacientesController.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Controllers\\PacientesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PacientesController.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Controllers\\PacientesController.cs",
+              "RelativeToolTip": "Controllers\\PacientesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T23:22:35.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ValidationsAgendamento.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
+              "RelativeDocumentMoniker": "Validations\\ValidationsAgendamento.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\Validations\\ValidationsAgendamento.cs",
+              "RelativeToolTip": "Validations\\ValidationsAgendamento.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T18:17:18.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Agenda_Consultorio\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-12-04T00:01:20.388Z",
               "EditorCaption": ""
             }
           ]

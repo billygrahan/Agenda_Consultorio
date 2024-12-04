@@ -58,4 +58,10 @@ public class Menus
             return 0;
         else return comando;
     }
+
+    public static string ObterRespostagenerica(string mensagem)
+    {
+        Console.Write(mensagem);
+        return Console.ReadLine();
+    }
 }

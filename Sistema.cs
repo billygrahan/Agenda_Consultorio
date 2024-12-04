@@ -2,24 +2,56 @@
 using Agenda_Consultorio.Views;
 using Agenda_Consultorio.Validations;
 using System.Globalization;
+using Agenda_Consultorio.Context;
+using Agenda_Consultorio.Controllers;
 
 namespace Agenda_Consultorio;
 
-public class Sistema : ValidationsSistema
+/*
+Nota sobre o programa:
+Este sistema de agendamento e cadastro utiliza, tambem, listas em memória para manipular os dados de pacientes e agendamentos, carregando-os do banco de dados ao iniciar. 
+Embora funcional, isso pode impactar o desempenho e a consistência dos dados em situações com grande volume de informações ou múltiplos usuários simultâneos. 
+Ajustes ainda estão sendo feitos no programa para realizar consultas diretamente no banco de dados quando necessário, eliminando a dependência do carregamento inicial e permitindo maior escalabilidade e confiabilidade.
+*/
+
+public class Sistema
 {
     // Alteradas para listas mutáveis
-    private List<Paciente> Pacientes  = new List<Paciente>();
-    private List<Agendamento> Agendamentos  = new List<Agendamento>();
-    private List<string> CPFsPacientes  = new List<string>();
+    private List<Paciente>? Pacientes  = new List<Paciente>();
+    private List<Agendamento>? Agendamentos  = new List<Agendamento>();
+    private List<string>? CPFsPacientes  = new List<string>();
 
+    private readonly AppDbContext BD;
+    private AgendamentosController agendamentosController;
+    private PacientesController pacientesController;
+
+    public Sistema()
+    {
+        BD = new();
+        agendamentosController = new AgendamentosController(BD);
+        pacientesController = new PacientesController(BD);
+
+        Pacientes = BD.Pacientes.ToList();
+
+        Agendamentos = BD.Agendamentos.ToList();
+
+        CPFsPacientes = Pacientes.Select(p => p.CPF).ToList();
+    }
     public bool CadastrarPaciente(Paciente novoPaciente)
     {
-        if (ValidaCadastroPaciente(novoPaciente))
+        if (ValidationsSistema.ValidaCadastroPaciente(novoPaciente))
         {
-            Pacientes.Add(novoPaciente);
-            CPFsPacientes.Add(novoPaciente.CPF);
-            Pacientes = Pacientes.OrderBy(p => p.Nome).ToList();
-            return true;
+            if (pacientesController.PostPaciente(novoPaciente))
+            {
+                Pacientes.Add(novoPaciente);
+                CPFsPacientes.Add(novoPaciente.CPF);
+                Pacientes = Pacientes.OrderBy(p => p.Nome).ToList();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
             return false;
@@ -28,33 +60,41 @@ public class Sistema : ValidationsSistema
     {
         var paciente = Pacientes.Find(Lpac => Lpac.CPF == CPF);
 
-        if (!ValidaExclusaoPaciente(CPF,Pacientes,Agendamentos))
-            return false;
-        else
+        if (ValidationsSistema.ValidaExclusaoPaciente(CPF, Pacientes, Agendamentos))
         {
-            Pacientes.Remove(paciente);
-            CPFsPacientes.Remove(CPF);
-            Agendamentos.RemoveAll(a => a.CPF == CPF);
-            return true;
+            if (pacientesController.DeletePaciente(paciente))
+            {
+                Pacientes.Remove(paciente);
+                CPFsPacientes.Remove(CPF);
+                Agendamentos.RemoveAll(a => a.CPF == CPF);
+                return true;
+            }
+            else { return false; }
         }
+        else return false;
     }
 
     public bool CadastrarConsulta(Agendamento novoAgendamento)
     {
-        if (ValidaCadastroConsulta(novoAgendamento, Agendamentos))
+        if (ValidationsSistema.ValidaCadastroConsulta(novoAgendamento, Agendamentos))
         {
-            Agendamentos.Add(novoAgendamento);
-            Agendamentos = Agendamentos
-                    .OrderBy(a => a.DataConsulta)
-                    .ThenBy(a => a.HoraInicial)
-                    .ToList();
-            return true;
+            if (agendamentosController.PostAgendamento(novoAgendamento))
+            {
+                Agendamentos.Add(novoAgendamento);
+                Agendamentos = Agendamentos
+                        .OrderBy(a => a.DataConsulta)
+                        .ThenBy(a => a.HoraInicial)
+                        .ToList();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
             return false ;
     }
-
-    
 
     public bool ExcluirAgendamento(string CPF, DateTime DataConsulta, TimeSpan HoraInicial)
     {
@@ -64,10 +104,17 @@ public class Sistema : ValidationsSistema
                                     agenda.HoraInicial == HoraInicial
         );
         
-        if (ValidaExclusaoAgendamento(CPF, DataConsulta, HoraInicial, Agendamentos))
+        if (ValidationsSistema.ValidaExclusaoAgendamento(CPF, DataConsulta, HoraInicial, Agendamentos))
         {
-            Agendamentos.Remove(agendamento);
-            return true;
+            if (agendamentosController.DeleteAgendamento(agendamento))
+            {
+                Agendamentos.Remove(agendamento);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else return false;
     }
@@ -80,6 +127,7 @@ public class Sistema : ValidationsSistema
 
             //menu pacientes
             if (comando1 == 1)
+            {
                 while (true)
                 {
                     int comando2 = Menus.MenuPacientes();
@@ -87,16 +135,14 @@ public class Sistema : ValidationsSistema
                     //cadastrar paciente
                     if (comando2 == 1)
                     {
-                        if (!CadastrarPaciente(new Paciente(CPFsPacientes)))
-                            Console.WriteLine("\nErro: paciente não cadastrado\n");
-                        else Console.WriteLine("\nPaciente cadastrado com sucesso!\n");
+                        if (CadastrarPaciente(new Paciente(CPFsPacientes)))
+                            Console.WriteLine("\nPaciente cadastrado com sucesso!\n");
                     }
 
                     //excluir paciente
                     else if (comando2 == 2)
                     {
-                        Console.Write("CPF:");
-                        string cpf = Console.ReadLine();
+                        string cpf = Menus.ObterRespostagenerica("CPF: ");
 
                         if (ExcluirPaciente(cpf)) Console.WriteLine("\nPaciente excluído com sucesso!\n");
                     }
@@ -110,11 +156,13 @@ public class Sistema : ValidationsSistema
                     //sair (menu pacientes)
                     else if (comando2 == 5) break;
 
-                    else Console.WriteLine("\nErro:comando não reconhecido!\n");
+                    else Errors.MensagemdeErro("Comand-incorrect");
                 }
+            }
 
             //menu da agenda
             else if (comando1 == 2)
+            {
                 while (true)
                 {
                     int comando3 = Menus.MenuAgenda();
@@ -132,26 +180,23 @@ public class Sistema : ValidationsSistema
                         string cpf;
                         do
                         {
-                            Console.Write("CPF: ");
-                            cpf = Console.ReadLine();
+                            cpf = Menus.ObterRespostagenerica("CPF: ");
                             if (!CPFsPacientes.Contains(cpf))
-                                Console.WriteLine("\nErro: paciente não cadastrado\n");
+                                Errors.MensagemdeErro("paciente nao cadastrado");
                         } while (!CPFsPacientes.Contains(cpf));
 
                         DateTime dataConsulta;
                         while (true)
                         {
-                            Console.Write("Data da Consulta: ");
-                            string dataConsulta_str = Console.ReadLine();
+                            string dataConsulta_str = Menus.ObterRespostagenerica("Data da Consulta: ");
                             if (DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta)) break;
-                            else Console.WriteLine("\nErro: Data no formato incorreto.\n");
+                            else Errors.MensagemdeErro("DateTime form");
                         }
 
                         TimeSpan horaInicial;
                         while (true)
                         {
-                            Console.Write("Hora Inicial: ");
-                            string horaInicial_str = Console.ReadLine();
+                            string horaInicial_str = Menus.ObterRespostagenerica("Hora Inicial: ");
 
                             if (TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial))
                             {
@@ -159,7 +204,7 @@ public class Sistema : ValidationsSistema
                             }
                             else
                             {
-                                Console.WriteLine("\nErro: Hora inicial inválida. Use o formato HHMM. XXXXXXXXXXXXXXXXXXXX\n");
+                                Errors.MensagemdeErro("TimeSpan form");
                             }
                         }
 
@@ -180,19 +225,17 @@ public class Sistema : ValidationsSistema
                             DateTime dataInicial;
                             while (true)
                             {
-                                Console.Write("Data inicial: ");
-                                string dataInicial_str = Console.ReadLine();
+                                string dataInicial_str = Menus.ObterRespostagenerica("Data inicial: ");
                                 if (DateTime.TryParseExact(dataInicial_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataInicial)) break;
-                                else Console.WriteLine("\nErro: Data no formato incorreto.\n");
+                                else Errors.MensagemdeErro("DateTime form");
                             }
 
                             DateTime dataFinal;
                             while (true)
                             {
-                                Console.Write("Data final: ");
-                                string dataFinal_str = Console.ReadLine();
+                                string dataFinal_str = Menus.ObterRespostagenerica("Data final: ");
                                 if (DateTime.TryParseExact(dataFinal_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataFinal)) break;
-                                else Console.WriteLine("\nErro: Data no formato incorreto.\n");
+                                else Errors.MensagemdeErro("DateTime form");
                             }
 
                             Respostas.ListagemAgenda(Agendamentos, Pacientes, dataInicial, dataFinal);
@@ -205,13 +248,14 @@ public class Sistema : ValidationsSistema
                     else if (comando3 == 4)
                         break;
 
-                    else Console.WriteLine("\nErro: Comando não reconhecido\n");
+                    else Errors.MensagemdeErro("Comand-incorrect");
                 }
+            }
 
             //sair
             else if (comando1 == 3) break;
 
-            else Console.WriteLine("\nErro: comando não reconhecido!\n");
+            else Errors.MensagemdeErro("Comand-incorrect");
         }
     }
 }

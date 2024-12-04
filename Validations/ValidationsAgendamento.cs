@@ -1,41 +1,42 @@
 ﻿using Agenda_Consultorio.Models;
+using Agenda_Consultorio.Views;
 using System.Globalization;
 
 namespace Agenda_Consultorio.Validations;
 
 public class ValidationsAgendamento
 {
-    protected bool ValidaCPF(string cpf, List<string> CPFs)
+    public static bool ValidaCPF(string cpf, List<string> CPFs)
     {
 
         if (!CPFs.Contains(cpf))
         {
-            Console.WriteLine("\nErro: paciente não cadastrado\n");
+            Errors.MensagemdeErro("paciente nao cadastrado");
             return false;
         }
         return true;
     }
 
-    protected bool ValidaDataConsulta(string dataConsulta_str)
+    public static bool ValidaDataConsulta(string dataConsulta_str)
     {
         DateTime dataConsulta;
         if (DateTime.TryParseExact(dataConsulta_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataConsulta))
         {
-            if (dataConsulta < DateTime.Now.Date)
+            if (dataConsulta < DateTime.Now.Date ||(dataConsulta == DateTime.Now.Date && DateTime.Now.TimeOfDay > new TimeSpan(18,45,0)))
             {
-                Console.WriteLine("\nErro: A data da consulta deve ser para um período futuro.\n");
+                Errors.MensagemdeErro("data no passado");
                 return false;
             }
             return true;
         }
         else
         {
-            Console.WriteLine("\nErro: Data no formato incorreto.\n");
+            Errors.MensagemdeErro("DateTime form");
             return false;
         }
     }
 
-    protected bool ValidaHoraInicial(string horaInicial_str)
+    public static bool ValidaHoraInicial(string horaInicial_str)
     {
         TimeSpan horaInicial;
         if (TimeSpan.TryParseExact(horaInicial_str, "hhmm", null, out horaInicial))
@@ -44,33 +45,41 @@ public class ValidationsAgendamento
         }
         else
         {
-            Console.WriteLine("\nErro: Hora inicial inválida. Use o formato HHMM. XXXXXXXXXXXXXXXXXXXX\n");
+            Errors.MensagemdeErro("TimeSpan form");
             return false;
         }
     }
 
-    protected bool ValidaHoraFinal(string horaFinal_str)
+    public static bool ValidaHoraFinal(string horaFinal_str)
     {
         TimeSpan horaFinal;
         if (TimeSpan.TryParseExact(horaFinal_str, "hhmm", null, out horaFinal))
         {
             return true;
         }
-        return false;
+        else
+        {
+            Errors.MensagemdeErro("TimeSpan form");
+            return false;
+        }
     }
 
-    protected bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta, TimeSpan horaInicio, TimeSpan horaFinal)
+    public static bool VerificarDataTimeValido(List<Agendamento> agendamentosExistentes, DateTime datConsulta, TimeSpan horaInicio, TimeSpan horaFinal)
     {
-
+            if (horaInicio >= horaFinal)
+            {
+                Errors.MensagemdeErro("final maior que inicial");
+                return false;
+            }
             if (horaInicio < new TimeSpan(8, 0, 0) || horaFinal > new TimeSpan(19, 0, 0))
             {
-                Console.WriteLine("\nErro: Horário fora do expediente (8:00 às 19:00).\n");
+                Errors.MensagemdeErro("expediente");
                 return false;
             }
 
             if (horaInicio.Minutes % 15 != 0 || horaFinal.Minutes % 15 != 0)
             {
-                Console.WriteLine("\nErro : Horas devem ser múltiplos de 15 minutos (e.g., 1400, 1415, 1430, etc.).\n");
+                Errors.MensagemdeErro("TimeSpan multiple 15");
                 return false;
             }
 
@@ -79,13 +88,7 @@ public class ValidationsAgendamento
                 !(horaFinal <= agendamento.HoraInicial || horaInicio >= agendamento.HoraFinal))
                 )
             {
-                Console.WriteLine("\nErro: já existe uma consulta agendada nesse horário\n");
-                return false;
-            }
-
-            if (horaInicio >= horaFinal)
-            {
-                Console.WriteLine("\nErro: Hora final deve ser após a Hora inicial.\n");
+                Errors.MensagemdeErro("colisao entre consultas");
                 return false;
             }
 

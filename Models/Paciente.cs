@@ -1,22 +1,41 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using Agenda_Consultorio.Validations;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using Agenda_Consultorio.Controllers;
+using Agenda_Consultorio.Views;
 
 namespace Agenda_Consultorio.Models;
 
-public class Paciente : ValidationsPaciente
+[Table("Pacientes")]
+public class Paciente
 {
-    public string Nome { get; private set; }
+    [Key]
     public string CPF { get; private set; }
+
+    [Required]
+    public string Nome { get; private set; }
+
+    [Required]
     public DateTime DataNascimento { get; private set; }
 
+    public ICollection<Agendamento>? Agendamentos { get; private set; }
+
+    // Construtor padrão (necessário para o EF)
+    public Paciente()
+    {
+        Agendamentos = new Collection<Agendamento>();
+    }
+
+    // Construtor com argumentos
     public Paciente(List<string> CPFs)
     {
-        //Console.WriteLine("\n=================================================================================");
         CPF = SolicitarCPF(CPFs);
         Nome = SolicitarNome();
         DataNascimento = SolicitarDataNascimento();
-        //Console.WriteLine("=================================================================================\n");
+
+        Agendamentos = new Collection<Agendamento>();
     }
 
     private string SolicitarNome()
@@ -25,9 +44,8 @@ public class Paciente : ValidationsPaciente
 
         do
         {
-            Console.Write("Nome: ");
-            nome = Console.ReadLine();
-        } while (!ValidaNome(nome));
+            nome = Menus.ObterRespostagenerica("Nome: ");
+        } while (!ValidationsPaciente.ValidaNome(nome));
 
         return nome;
     }
@@ -37,9 +55,8 @@ public class Paciente : ValidationsPaciente
         string cpf = "";
         do
         {
-            Console.Write("CPF: ");
-            cpf = Console.ReadLine();
-        } while (!ValidaCPF(cpf,CPFs));
+            cpf = Menus.ObterRespostagenerica("CPF: ");
+        } while (!ValidationsPaciente.ValidaCPF(cpf, CPFs));
 
         return cpf;
     }
@@ -51,12 +68,12 @@ public class Paciente : ValidationsPaciente
 
         do
         {
-            Console.Write("Data de Nascimento: ");
-            dataNascimento_str = Console.ReadLine();
-        } while (!ValidaDataNascimento(dataNascimento_str));
+            dataNascimento_str = Menus.ObterRespostagenerica("Data de Nascimento: ");
+        } while (!ValidationsPaciente.ValidaDataNascimento(dataNascimento_str));
 
         DateTime.TryParseExact(dataNascimento_str, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento);
-        return dataNascimento;
+        return dataNascimento.ToUniversalTime();
     }
 }
+
 
